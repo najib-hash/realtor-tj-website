@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — Realtor.tj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--blue:#1b31e8;--blue-dk:#1427c4;--blue-gl:rgba(27,49,232,.12);--mint:#95f9af;--white:#fff;--off:#f4f6ff;--text:#0d0d0d;--mid:#4a4a6a;--light:#8888aa;--border:rgba(27,49,232,.12)}
+    html{scroll-behavior:smooth}
+    body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo img{height:32px;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{color:var(--mid);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border:none;font-family:'Inter',sans-serif;cursor:pointer}
+    .btn-primary{background:var(--blue);color:var(--white)}
+    .btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+
+    .page-hdr{background:var(--off);padding:52px 48px 44px;border-bottom:1px solid var(--border)}
+    .crumb{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--light);margin-bottom:18px}
+    .crumb a{color:var(--blue);text-decoration:none}
+    .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+    .page-hdr h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+    .page-hdr .meta{font-size:14px;color:var(--mid)}
+
+    .page-body{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:210px 1fr}
+
+    .toc{padding:36px 16px 36px 44px;position:sticky;top:64px;align-self:start;max-height:calc(100vh - 64px);overflow-y:auto}
+    .toc h3{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:14px}
+    .toc ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc a{display:block;padding:6px 10px;border-radius:7px;color:var(--mid);text-decoration:none;font-size:13px;line-height:1.4;transition:background .15s,color .15s}
+    .toc a:hover{background:var(--off);color:var(--blue)}
+
+    article{padding:44px 44px 60px 36px;border-left:1px solid var(--border);min-width:0}
+    article section{margin-bottom:48px;scroll-margin-top:80px}
+    article h2{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--off);display:flex;align-items:center;gap:9px}
+    .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;background:var(--blue);color:var(--white);border-radius:7px;font-size:12px;font-weight:700}
+    article p{font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:12px}
+    article ul,article ol{padding-left:20px;margin-bottom:12px}
+    article li{font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:5px}
+    article strong{color:var(--text);font-weight:600}
+    article a{color:var(--blue);text-decoration:none}
+    article a:hover{text-decoration:underline}
+    .info-box{background:var(--off);border-left:3px solid var(--blue);border-radius:0 9px 9px 0;padding:14px 18px;margin-bottom:22px}
+    .info-box p{margin:0;font-size:14px}
+
+    footer{background:#0a0d1f;padding:60px 48px 30px;color:var(--white)}
+    .f-inner{max-width:1200px;margin:0 auto}
+    .f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:52px;margin-bottom:48px}
+    .f-brand img{height:30px;margin-bottom:18px;display:block}
+    .f-brand p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:260px}
+    .f-col h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .f-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:14px;transition:color .2s}
+    .f-col ul li a:hover{color:var(--mint)}
+    .f-col address{font-style:normal;display:flex;flex-direction:column;gap:12px}
+    .c-row{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;line-height:1.5;transition:color .2s}
+    a.c-row:hover{color:var(--mint)}
+    .c-icon{width:28px;height:28px;background:rgba(149,249,175,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+    .f-div{height:1px;background:rgba(255,255,255,.07);margin-bottom:24px}
+    .f-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+    .f-bot p{font-size:13px;color:rgba(255,255,255,.3)}
+    .f-legal{display:flex;gap:22px}
+    .f-legal a{color:rgba(255,255,255,.3);font-size:13px;text-decoration:none;transition:color .2s}
+    .f-legal a:hover{color:var(--mint)}
+
+    @media(max-width:900px){.page-body{grid-template-columns:1fr}.toc{display:none}article{border-left:none;padding:28px 18px 44px}}
+    @media(max-width:640px){nav{padding:0 18px}.nav-links,.btn{display:none}.hamburger{display:flex}.page-hdr{padding:36px 18px 28px}footer{padding:44px 18px 22px}.f-top{grid-template-columns:1fr;gap:30px}.f-bot{flex-direction:column;align-items:flex-start}nav.open .nav-links{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:18px 22px;gap:18px;z-index:199}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="Logo_2.png" alt="Realtor.tj"/></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#download">Download</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+  <a class="btn btn-primary" href="index.html#download">Get the App</a>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hdr">
+  <div class="crumb"><a href="index.html">Home</a><span>›</span><span>Terms &amp; Conditions</span></div>
+  <div class="tag">Legal</div>
+  <h1>Terms &amp; Conditions</h1>
+  <p class="meta">Last updated: January 1, 2025 &nbsp;·&nbsp; Effective immediately upon use</p>
+</div>
+
+<div class="page-body">
+  <aside class="toc">
+    <h3>On this page</h3>
+    <ul>
+      <li><a href="#s1">1. Acceptance</a></li>
+      <li><a href="#s2">2. Services</a></li>
+      <li><a href="#s3">3. User Accounts</a></li>
+      <li><a href="#s4">4. Listings &amp; Content</a></li>
+      <li><a href="#s5">5. Prohibited Uses</a></li>
+      <li><a href="#s6">6. Intellectual Property</a></li>
+      <li><a href="#s7">7. Disclaimers</a></li>
+      <li><a href="#s8">8. Limitation of Liability</a></li>
+      <li><a href="#s9">9. Termination</a></li>
+      <li><a href="#s10">10. Governing Law</a></li>
+      <li><a href="#s11">11. Changes</a></li>
+      <li><a href="#s12">12. Contact</a></li>
+    </ul>
+  </aside>
+
+  <article>
+    <div class="info-box"><p>Please read these Terms &amp; Conditions carefully before using Realtor.tj. By accessing or using our services, you agree to be bound by these terms in full.</p></div>
+
+    <section id="s1"><h2><span class="num">1</span> Acceptance of Terms</h2>
+      <p>By downloading, installing, or using the Realtor.tj mobile application ("App") or visiting our website ("Site"), you agree to these Terms &amp; Conditions ("Terms") and our Privacy Policy. If you do not agree, please do not use our services.</p>
+      <p>These Terms constitute a legally binding agreement between you and <strong>Realtor.tj</strong>. You represent that you are at least 18 years old and have the legal capacity to enter into this agreement.</p>
+    </section>
+
+    <section id="s2"><h2><span class="num">2</span> Our Services</h2>
+      <p>Realtor.tj provides an online real estate platform that allows users to:</p>
+      <ul>
+        <li>Browse, search, and filter real estate listings across Tajikistan</li>
+        <li>Post property listings for sale or rent</li>
+        <li>Contact property owners, agents, and sellers directly</li>
+        <li>Save favorite properties and set personalized search alerts</li>
+        <li>Access property market information and related content</li>
+      </ul>
+      <p>We act as an intermediary platform and do not represent any particular buyer, seller, landlord, or tenant, and do not directly participate in real estate transactions.</p>
+    </section>
+
+    <section id="s3"><h2><span class="num">3</span> User Accounts</h2>
+      <p>To access certain features you may be required to register. You agree to:</p>
+      <ul>
+        <li>Provide accurate, current, and complete registration information</li>
+        <li>Maintain and promptly update your account information</li>
+        <li>Keep your password secure and confidential</li>
+        <li>Notify us immediately of any unauthorized account use</li>
+        <li>Accept responsibility for all activity that occurs under your account</li>
+      </ul>
+      <p>We reserve the right to suspend or terminate accounts that violate these Terms or are used for fraudulent purposes.</p>
+    </section>
+
+    <section id="s4"><h2><span class="num">4</span> Listings &amp; User Content</h2>
+      <p>Users who post listings are solely responsible for the accuracy and legality of their content. By submitting a listing you:</p>
+      <ul>
+        <li>Confirm you have the legal right to list the property</li>
+        <li>Grant Realtor.tj a non-exclusive license to display, distribute, and promote your listing</li>
+        <li>Agree that all information provided is truthful and not misleading</li>
+        <li>Acknowledge that Realtor.tj may remove content that violates these Terms</li>
+      </ul>
+    </section>
+
+    <section id="s5"><h2><span class="num">5</span> Prohibited Uses</h2>
+      <p>You agree not to use the platform to:</p>
+      <ul>
+        <li>Post false, inaccurate, or misleading listings or content</li>
+        <li>Engage in fraudulent or deceptive practices</li>
+        <li>Harass, threaten, or harm other users</li>
+        <li>Scrape, harvest, or systematically collect data without permission</li>
+        <li>Transmit viruses, malware, or malicious code</li>
+        <li>Circumvent or attempt to disable our security measures</li>
+        <li>Use the platform for any unlawful purpose under Tajikistan law</li>
+      </ul>
+    </section>
+
+    <section id="s6"><h2><span class="num">6</span> Intellectual Property</h2>
+      <p>All platform content — including logos, design, software, text, and graphics — is the exclusive property of Realtor.tj or its licensors and is protected by applicable intellectual property laws. You may not copy, modify, or distribute any part without our prior written permission.</p>
+    </section>
+
+    <section id="s7"><h2><span class="num">7</span> Disclaimers</h2>
+      <p>The platform and all content are provided <strong>"as is"</strong> without warranties of any kind. We expressly disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p>
+    </section>
+
+    <section id="s8"><h2><span class="num">8</span> Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Realtor.tj shall not be liable for any indirect, incidental, special, or consequential damages resulting from use of the platform, third-party conduct, property transactions, or unauthorized data access. Our total liability shall not exceed amounts paid by you in the preceding 12 months.</p>
+    </section>
+
+    <section id="s9"><h2><span class="num">9</span> Termination</h2>
+      <p>We may suspend or terminate your access at our sole discretion for violations of these Terms. You may terminate your account at any time by contacting us at <a href="mailto:info@realtor.tj">info@realtor.tj</a>.</p>
+    </section>
+
+    <section id="s10"><h2><span class="num">10</span> Governing Law</h2>
+      <p>These Terms are governed by the laws of the <strong>Republic of Tajikistan</strong>. Any dispute shall be subject to the exclusive jurisdiction of the courts of Dushanbe, Tajikistan.</p>
+    </section>
+
+    <section id="s11"><h2><span class="num">11</span> Changes to These Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. We will notify users of material changes by posting a notice on the platform or via email. Continued use after changes constitutes acceptance of the updated Terms.</p>
+    </section>
+
+    <section id="s12"><h2><span class="num">12</span> Contact Us</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@realtor.tj">info@realtor.tj</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+992000000000">+992 00 000-00-00</a></li>
+        <li><strong>Address:</strong> Dushanbe, Tajikistan</li>
+      </ul>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="Logo_2.png" alt="Realtor.tj"/>
+        <p>Tajikistan's leading real estate platform connecting buyers, sellers, and renters across the country.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#download">Download App</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact Us</h4>
+        <address>
+          <span class="c-row"><span class="c-icon">📍</span>Dushanbe, Tajikistan</span>
+          <a class="c-row" href="mailto:info@realtor.tj"><span class="c-icon">✉️</span>info@realtor.tj</a>
+          <a class="c-row" href="tel:+992000000000"><span class="c-icon">📞</span>+992 00 000-00-00</a>
+        </address>
+      </div>
+    </div>
+    <div class="f-div"></div>
+    <div class="f-bot">
+      <p>© 2025 Realtor.tj. All rights reserved.</p>
+      <div class="f-legal">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ham').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+</script>
+</body>
+</html>

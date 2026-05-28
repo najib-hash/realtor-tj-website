@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Realtor.tj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--blue:#1b31e8;--blue-dk:#1427c4;--blue-gl:rgba(27,49,232,.12);--mint:#95f9af;--white:#fff;--off:#f4f6ff;--text:#0d0d0d;--mid:#4a4a6a;--light:#8888aa;--border:rgba(27,49,232,.12)}
+    html{scroll-behavior:smooth}
+    body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo img{height:32px;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{color:var(--mid);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border:none;font-family:'Inter',sans-serif;cursor:pointer}
+    .btn-primary{background:var(--blue);color:var(--white)}
+    .btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+
+    .page-hdr{background:var(--off);padding:52px 48px 44px;border-bottom:1px solid var(--border)}
+    .crumb{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--light);margin-bottom:18px}
+    .crumb a{color:var(--blue);text-decoration:none}
+    .tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+    .page-hdr h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4.5vw,52px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-bottom:12px}
+    .page-hdr .meta{font-size:14px;color:var(--mid)}
+
+    .page-body{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:210px 1fr}
+
+    .toc{padding:36px 16px 36px 44px;position:sticky;top:64px;align-self:start;max-height:calc(100vh - 64px);overflow-y:auto}
+    .toc h3{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--light);margin-bottom:14px}
+    .toc ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+    .toc a{display:block;padding:6px 10px;border-radius:7px;color:var(--mid);text-decoration:none;font-size:13px;line-height:1.4;transition:background .15s,color .15s}
+    .toc a:hover{background:var(--off);color:var(--blue)}
+
+    article{padding:44px 44px 60px 36px;border-left:1px solid var(--border);min-width:0}
+    article section{margin-bottom:48px;scroll-margin-top:80px}
+    article h2{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--off);display:flex;align-items:center;gap:9px}
+    .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;flex-shrink:0;background:var(--blue);color:var(--white);border-radius:7px;font-size:12px;font-weight:700}
+    article p{font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:12px}
+    article ul,article ol{padding-left:20px;margin-bottom:12px}
+    article li{font-size:15px;color:var(--mid);line-height:1.8;margin-bottom:5px}
+    article strong{color:var(--text);font-weight:600}
+    article a{color:var(--blue);text-decoration:none}
+    article a:hover{text-decoration:underline}
+    .info-box{background:var(--off);border-left:3px solid var(--blue);border-radius:0 9px 9px 0;padding:14px 18px;margin-bottom:22px}
+    .info-box p{margin:0;font-size:14px}
+
+    .data-tbl{width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+    .data-tbl th{background:var(--blue);color:var(--white);font-weight:600;text-align:left;padding:11px 14px;font-size:13px}
+    .data-tbl td{color:var(--mid);padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+    .data-tbl tr:nth-child(even) td{background:var(--off)}
+    .data-tbl tr:last-child td{border-bottom:none}
+
+    footer{background:#0a0d1f;padding:60px 48px 30px;color:var(--white)}
+    .f-inner{max-width:1200px;margin:0 auto}
+    .f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:52px;margin-bottom:48px}
+    .f-brand img{height:30px;margin-bottom:18px;display:block}
+    .f-brand p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:260px}
+    .f-col h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .f-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:14px;transition:color .2s}
+    .f-col ul li a:hover{color:var(--mint)}
+    .f-col address{font-style:normal;display:flex;flex-direction:column;gap:12px}
+    .c-row{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;line-height:1.5;transition:color .2s}
+    a.c-row:hover{color:var(--mint)}
+    .c-icon{width:28px;height:28px;background:rgba(149,249,175,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+    .f-div{height:1px;background:rgba(255,255,255,.07);margin-bottom:24px}
+    .f-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+    .f-bot p{font-size:13px;color:rgba(255,255,255,.3)}
+    .f-legal{display:flex;gap:22px}
+    .f-legal a{color:rgba(255,255,255,.3);font-size:13px;text-decoration:none;transition:color .2s}
+    .f-legal a:hover{color:var(--mint)}
+
+    @media(max-width:900px){.page-body{grid-template-columns:1fr}.toc{display:none}article{border-left:none;padding:28px 18px 44px}}
+    @media(max-width:640px){nav{padding:0 18px}.nav-links,.btn{display:none}.hamburger{display:flex}.page-hdr{padding:36px 18px 28px}footer{padding:44px 18px 22px}.f-top{grid-template-columns:1fr;gap:30px}.f-bot{flex-direction:column;align-items:flex-start}nav.open .nav-links{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:18px 22px;gap:18px;z-index:199}.data-tbl{font-size:12px}}
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="Logo_2.png" alt="Realtor.tj"/></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#download">Download</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+  <a class="btn btn-primary" href="index.html#download">Get the App</a>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hdr">
+  <div class="crumb"><a href="index.html">Home</a><span>›</span><span>Privacy Policy</span></div>
+  <div class="tag">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: January 1, 2025 &nbsp;·&nbsp; Effective immediately upon use</p>
+</div>
+
+<div class="page-body">
+  <aside class="toc">
+    <h3>On this page</h3>
+    <ul>
+      <li><a href="#p1">1. Introduction</a></li>
+      <li><a href="#p2">2. Data We Collect</a></li>
+      <li><a href="#p3">3. How We Use Data</a></li>
+      <li><a href="#p4">4. Sharing Data</a></li>
+      <li><a href="#p5">5. Cookies</a></li>
+      <li><a href="#p6">6. Data Retention</a></li>
+      <li><a href="#p7">7. Security</a></li>
+      <li><a href="#p8">8. Your Rights</a></li>
+      <li><a href="#p9">9. Children's Privacy</a></li>
+      <li><a href="#p10">10. International Transfers</a></li>
+      <li><a href="#p11">11. Changes</a></li>
+      <li><a href="#p12">12. Contact</a></li>
+    </ul>
+  </aside>
+
+  <article>
+    <div class="info-box"><p>Your privacy matters to us. This Privacy Policy explains how Realtor.tj collects, uses, and protects your personal information when you use our website or mobile application.</p></div>
+
+    <section id="p1"><h2><span class="num">1</span> Introduction</h2>
+      <p>Realtor.tj is committed to protecting your personal information. This Privacy Policy describes our practices regarding the collection, use, and disclosure of information when you use the Realtor.tj App or website (the "Service").</p>
+      <p>By using our Service, you agree to the collection and use of information in accordance with this policy.</p>
+    </section>
+
+    <section id="p2"><h2><span class="num">2</span> Data We Collect</h2>
+      <p>We collect the following categories of information:</p>
+      <table class="data-tbl">
+        <thead><tr><th>Category</th><th>Examples</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Account Data</strong></td><td>Name, email address, phone number, password</td><td>Provided by you</td></tr>
+          <tr><td><strong>Listing Data</strong></td><td>Property address, photos, price, description</td><td>Provided by you</td></tr>
+          <tr><td><strong>Usage Data</strong></td><td>Pages viewed, searches performed, time spent</td><td>Auto-collected</td></tr>
+          <tr><td><strong>Device Data</strong></td><td>Device type, OS, browser, IP address</td><td>Auto-collected</td></tr>
+          <tr><td><strong>Location Data</strong></td><td>Approximate or precise location (with consent)</td><td>Device / you</td></tr>
+        </tbody>
+      </table>
+      <p>We do not collect sensitive personal information such as government ID numbers or financial account details unless explicitly required and separately disclosed.</p>
+    </section>
+
+    <section id="p3"><h2><span class="num">3</span> How We Use Your Data</h2>
+      <ul>
+        <li>Provide, operate, and improve the Realtor.tj platform</li>
+        <li>Process and display property listings</li>
+        <li>Enable communication between buyers, renters, and sellers</li>
+        <li>Send notifications, alerts, and service-related messages</li>
+        <li>Personalize your experience and recommend relevant listings</li>
+        <li>Monitor and analyze usage trends to improve the Service</li>
+        <li>Detect, prevent, and address fraud and technical issues</li>
+        <li>Comply with applicable legal obligations</li>
+      </ul>
+    </section>
+
+    <section id="p4"><h2><span class="num">4</span> Sharing Your Data</h2>
+      <p>We do not sell your personal information. We may share your data with:</p>
+      <ul>
+        <li><strong>Other users:</strong> Listing details and contact information you choose to make public</li>
+        <li><strong>Service providers:</strong> Third-party vendors who help operate our platform under strict confidentiality agreements</li>
+        <li><strong>Legal authorities:</strong> When required by law, court order, or government regulation</li>
+        <li><strong>Business transfers:</strong> In connection with a merger or acquisition, with appropriate notice</li>
+      </ul>
+    </section>
+
+    <section id="p5"><h2><span class="num">5</span> Cookies &amp; Tracking</h2>
+      <p>We use cookies and similar technologies including essential cookies (required for functionality), analytics cookies (to understand usage), and preference cookies (to remember your settings). You can control these via your browser settings; disabling some may affect functionality.</p>
+    </section>
+
+    <section id="p6"><h2><span class="num">6</span> Data Retention</h2>
+      <p>We retain your personal data while your account is active or as needed to provide our services. When you delete your account, personal data is removed within <strong>90 days</strong>, except where legally required to retain it.</p>
+    </section>
+
+    <section id="p7"><h2><span class="num">7</span> Data Security</h2>
+      <p>We implement industry-standard technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction — including encryption and secure server infrastructure.</p>
+      <p>No method of internet transmission is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+    </section>
+
+    <section id="p8"><h2><span class="num">8</span> Your Rights</h2>
+      <p>Depending on your location, you may have the right to access, correct, delete, or receive a portable copy of your data, and to object to or restrict certain processing. To exercise these rights, contact us at <a href="mailto:info@realtor.tj">info@realtor.tj</a>. We respond within 30 days.</p>
+    </section>
+
+    <section id="p9"><h2><span class="num">9</span> Children's Privacy</h2>
+      <p>Our Service is not directed at children under 18. We do not knowingly collect personal information from minors. If you believe a child has provided us with data, please contact us and we will promptly delete it.</p>
+    </section>
+
+    <section id="p10"><h2><span class="num">10</span> International Data Transfers</h2>
+      <p>Your information may be transferred to and processed in countries other than Tajikistan. We ensure appropriate safeguards are in place for such transfers in compliance with applicable data protection laws.</p>
+    </section>
+
+    <section id="p11"><h2><span class="num">11</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via the platform or email. Continued use after updates constitutes acceptance of the revised policy.</p>
+    </section>
+
+    <section id="p12"><h2><span class="num">12</span> Contact Us</h2>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@realtor.tj">info@realtor.tj</a></li>
+        <li><strong>Phone:</strong> <a href="tel:+992000000000">+992 00 000-00-00</a></li>
+        <li><strong>Address:</strong> Dushanbe, Tajikistan</li>
+      </ul>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="Logo_2.png" alt="Realtor.tj"/>
+        <p>Tajikistan's leading real estate platform connecting buyers, sellers, and renters across the country.</p>
+      </div>
+      <div class="f-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#download">Download App</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact Us</h4>
+        <address>
+          <span class="c-row"><span class="c-icon">📍</span>Dushanbe, Tajikistan</span>
+          <a class="c-row" href="mailto:info@realtor.tj"><span class="c-icon">✉️</span>info@realtor.tj</a>
+          <a class="c-row" href="tel:+992000000000"><span class="c-icon">📞</span>+992 00 000-00-00</a>
+        </address>
+      </div>
+    </div>
+    <div class="f-div"></div>
+    <div class="f-bot">
+      <p>© 2025 Realtor.tj. All rights reserved.</p>
+      <div class="f-legal">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ham').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+</script>
+</body>
+</html>

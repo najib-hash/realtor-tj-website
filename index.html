@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Realtor.tj — Real Estate in Tajikistan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#1b31e8;--blue-dk:#1427c4;--blue-gl:rgba(27,49,232,.12);
+      --mint:#95f9af;--mint-dk:#6ee88a;
+      --white:#fff;--off:#f4f6ff;
+      --text:#0d0d0d;--mid:#4a4a6a;--light:#8888aa;
+      --border:rgba(27,49,232,.12);
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
+
+    /* NAV */
+    nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+    .logo img{height:32px;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{color:var(--mid);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--blue)}
+    .nav-cta{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border:none;font-family:'Inter',sans-serif;cursor:pointer}
+    .btn-primary{background:var(--blue);color:var(--white)}
+    .btn-primary:hover{background:var(--blue-dk);transform:translateY(-1px);box-shadow:0 8px 24px var(--blue-gl)}
+    .btn-outline{background:transparent;color:var(--blue);border:1.5px solid var(--blue)}
+    .btn-outline:hover{background:var(--blue);color:var(--white)}
+    .hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+    .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all .25s}
+
+    /* HERO */
+    .hero{background:var(--off);overflow:hidden}
+    .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:end;gap:48px;padding:72px 48px 0}
+    .hero-text{padding-bottom:72px}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(27,49,232,.08);border:1px solid rgba(27,49,232,.2);color:var(--blue);border-radius:100px;padding:5px 14px 5px 8px;font-size:12px;font-weight:600;margin-bottom:24px}
+    .badge-dot{width:20px;height:20px;background:var(--mint);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px}
+    h1{font-family:'Syne',sans-serif;font-size:clamp(34px,4.5vw,64px);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:18px}
+    h1 em{font-style:normal;color:var(--blue)}
+    .hero-p{font-size:17px;color:var(--mid);line-height:1.7;max-width:440px;margin-bottom:36px}
+    .store-row{display:flex;gap:12px;flex-wrap:wrap}
+    .sb{display:flex;align-items:center;gap:10px;padding:13px 22px;border-radius:12px;text-decoration:none;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer}
+    .sb.ios{background:var(--blue);color:var(--white)}
+    .sb.ios:hover{background:var(--blue-dk);transform:translateY(-2px);box-shadow:0 10px 28px var(--blue-gl)}
+    .sb.and{background:var(--mint);color:var(--text)}
+    .sb.and:hover{background:var(--mint-dk);transform:translateY(-2px);box-shadow:0 10px 28px rgba(149,249,175,.4)}
+    .sb svg{width:20px;height:20px;flex-shrink:0}
+    .sb-t{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2}
+    .sb-t small{font-size:10px;font-weight:400;opacity:.7}
+    .hero-visual{position:relative;align-self:flex-end}
+    .hero-visual img{width:100%;display:block;border-radius:14px 14px 0 0;position:relative;z-index:1}
+    .hero-visual::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,var(--off) 15%,transparent);z-index:2;pointer-events:none}
+
+    /* TRUST */
+    .trust{background:var(--blue);padding:18px 48px}
+    .trust-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-around;gap:24px;flex-wrap:wrap}
+    .t-item{display:flex;align-items:center;gap:12px;color:var(--white)}
+    .t-num{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--mint);line-height:1}
+    .t-lbl{font-size:12px;opacity:.75;line-height:1.4}
+    .t-sep{width:1px;height:36px;background:rgba(255,255,255,.15)}
+
+    /* FEATURES */
+    .features{padding:88px 48px;background:var(--white)}
+    .sec-inner{max-width:1200px;margin:0 auto}
+    .sec-tag{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+    .sec-h2{font-family:'Syne',sans-serif;font-size:clamp(26px,3.5vw,44px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
+    .sec-sub{font-size:16px;color:var(--mid);line-height:1.65;max-width:500px;margin-bottom:48px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .f-card{background:var(--off);border:1px solid var(--border);border-radius:18px;padding:28px 24px;transition:border-color .25s,transform .25s,box-shadow .25s}
+    .f-card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 14px 36px var(--blue-gl)}
+    .f-icon{width:48px;height:48px;background:var(--blue);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px}
+    .f-card h3{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:8px}
+    .f-card p{font-size:14px;color:var(--mid);line-height:1.7}
+
+    /* DOWNLOAD CTA */
+    .dl-cta{background:var(--blue);padding:72px 48px;position:relative;overflow:hidden}
+    .dl-cta::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;background:rgba(149,249,175,.07);border-radius:50%;pointer-events:none}
+    .dl-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;position:relative;z-index:1}
+    .dl-text h2{font-family:'Syne',sans-serif;font-size:clamp(24px,3.5vw,44px);font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.15;margin-bottom:12px}
+    .dl-text p{font-size:16px;color:rgba(255,255,255,.65);max-width:380px;line-height:1.65}
+    .dl-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:0}
+    .sb2{display:flex;align-items:center;gap:10px;padding:14px 22px;border-radius:12px;font-family:'Inter',sans-serif;font-weight:600;font-size:14px;transition:all .2s;border:none;cursor:pointer}
+    .sb2.ios{background:var(--white);color:var(--blue)}
+    .sb2.ios:hover{background:var(--off);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+    .sb2.and{background:var(--mint);color:var(--text)}
+    .sb2.and:hover{background:var(--mint-dk);transform:translateY(-2px)}
+
+    /* FOOTER */
+    footer{background:#0a0d1f;padding:60px 48px 30px;color:var(--white)}
+    .f-inner{max-width:1200px;margin:0 auto}
+    .f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:52px;margin-bottom:48px}
+    .f-brand img{height:30px;margin-bottom:18px;display:block}
+    .f-brand p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.7;max-width:260px;margin-bottom:22px}
+    .f-social{display:flex;gap:8px}
+    .f-soc-btn{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;font-size:13px;transition:background .2s,color .2s}
+    .f-soc-btn:hover{background:var(--blue);color:var(--white)}
+    .f-col h4{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:18px}
+    .f-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .f-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:14px;transition:color .2s}
+    .f-col ul li a:hover{color:var(--mint)}
+    .f-col address{font-style:normal;display:flex;flex-direction:column;gap:12px}
+    .c-row{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.55);font-size:14px;text-decoration:none;line-height:1.5;transition:color .2s}
+    a.c-row:hover{color:var(--mint)}
+    .c-icon{width:28px;height:28px;background:rgba(149,249,175,.1);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px}
+    .f-div{height:1px;background:rgba(255,255,255,.07);margin-bottom:26px}
+    .f-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+    .f-bot p{font-size:13px;color:rgba(255,255,255,.3)}
+    .f-legal{display:flex;gap:22px}
+    .f-legal a{color:rgba(255,255,255,.3);font-size:13px;text-decoration:none;transition:color .2s}
+    .f-legal a:hover{color:var(--mint)}
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero-visual{display:none}
+      .hero-text{padding-bottom:56px}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .f-top{grid-template-columns:1fr 1fr}
+      .f-brand{grid-column:1/-1}
+    }
+    @media(max-width:640px){
+      nav{padding:0 18px}
+      .nav-links,.nav-cta{display:none}
+      .hamburger{display:flex}
+      nav.open .nav-links{display:flex;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);padding:18px 22px;gap:18px;z-index:199}
+      .hero-inner{padding:44px 18px 0;gap:28px}
+      .hero-text{padding-bottom:44px}
+      .trust{padding:14px 18px}
+      .features{padding:56px 18px}
+      .grid-3{grid-template-columns:1fr}
+      .dl-cta{padding:48px 18px}
+      .dl-inner{flex-direction:column;align-items:flex-start}
+      footer{padding:44px 18px 22px}
+      .f-top{grid-template-columns:1fr;gap:32px}
+      .f-brand{grid-column:auto}
+      .f-bot{flex-direction:column;align-items:flex-start}
+      .t-sep{display:none}
+      .trust-inner{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="index.html"><img src="Logo_2.png" alt="Realtor.tj"/></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#download">Download</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn btn-outline" href="terms.html">Legal</a>
+    <a class="btn btn-primary" href="#download">Get the App</a>
+  </div>
+  <button class="hamburger" id="ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="badge"><span class="badge-dot">🏠</span>Tajikistan's Real Estate Platform</div>
+      <h1>Find Your <em>Perfect</em> Property in Tajikistan</h1>
+      <p class="hero-p">Browse thousands of verified listings across Dushanbe and beyond. Buy, sell, or rent — all in one place.</p>
+      <div class="store-row">
+        <a class="sb ios" href="https://apps.apple.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="sb-t"><small>Download on the</small>App Store</div>
+        </a>
+        <a class="sb and" href="https://play.google.com" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 1-.69-.68V1.12a2 2 0 0 1 .69-.68l.1-.06 12.08 12.08v.28L3.28 23.82l-.1-.06zm16.64-6.98-3.28-1.88-3.28 3.28 3.05 3.05a2 2 0 0 0 .26-.16l3.25-1.87a1.37 1.37 0 0 0 0-2.42zm-6.56-.75L1.18.94A1.91 1.91 0 0 0 1 1.12v21.76a1.91 1.91 0 0 0 .18.18zM2.44.38l13.14 7.56-3.28 3.28L2.44.38z"/></svg>
+          <div class="sb-t"><small>Get it on</small>Google Play</div>
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="CS_04-1_1_vector__soglasovano.jpg" alt="Dushanbe city skyline"/>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-inner">
+    <div class="t-item"><div class="t-num">5K+</div><div class="t-lbl">Active<br>Listings</div></div>
+    <div class="t-sep"></div>
+    <div class="t-item"><div class="t-num">50K+</div><div class="t-lbl">Registered<br>Users</div></div>
+    <div class="t-sep"></div>
+    <div class="t-item"><div class="t-num">10+</div><div class="t-lbl">Cities<br>Covered</div></div>
+    <div class="t-sep"></div>
+    <div class="t-item"><div class="t-num">4.8★</div><div class="t-lbl">App Store<br>Rating</div></div>
+  </div>
+</div>
+
+<section class="features" id="features">
+  <div class="sec-inner">
+    <div class="sec-tag">Why Realtor.tj</div>
+    <h2 class="sec-h2">Everything you need to find<br>your next property</h2>
+    <p class="sec-sub">Whether buying, renting, or listing — Realtor.tj gives you the tools to navigate Tajikistan's real estate market with confidence.</p>
+    <div class="grid-3">
+      <div class="f-card"><div class="f-icon">🏠</div><h3>Verified Listings</h3><p>Every property goes through a verification process to ensure accuracy and reliability.</p></div>
+      <div class="f-card"><div class="f-icon">📍</div><h3>Map Search</h3><p>Pinpoint exactly where you want to live and filter by neighborhood or draw your own area.</p></div>
+      <div class="f-card"><div class="f-icon">🔔</div><h3>Smart Alerts</h3><p>Set your criteria once and get instant notifications when a matching property hits the market.</p></div>
+      <div class="f-card"><div class="f-icon">💬</div><h3>Direct Messaging</h3><p>Contact owners and agents directly — no middlemen, no delays, fully transparent.</p></div>
+      <div class="f-card"><div class="f-icon">📊</div><h3>Market Insights</h3><p>Real-time pricing data and trends to make confident, informed property decisions.</p></div>
+      <div class="f-card"><div class="f-icon">⚡</div><h3>Fast & Reliable</h3><p>Listings load instantly whether you're on desktop or browsing on mobile.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="dl-cta" id="download">
+  <div class="dl-inner">
+    <div class="dl-text">
+      <h2>Take Realtor.tj<br>everywhere you go</h2>
+      <p>Download our mobile app and browse thousands of listings from anywhere in Tajikistan.</p>
+      <div class="dl-btns" style="margin-top:28px">
+        <a class="sb2 ios" href="https://apps.apple.com" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <div class="sb-t"><small>Download on the</small>App Store</div>
+        </a>
+        <a class="sb2 and" href="https://play.google.com" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76a2 2 0 0 1-.69-.68V1.12a2 2 0 0 1 .69-.68l.1-.06 12.08 12.08v.28L3.28 23.82l-.1-.06zm16.64-6.98-3.28-1.88-3.28 3.28 3.05 3.05a2 2 0 0 0 .26-.16l3.25-1.87a1.37 1.37 0 0 0 0-2.42zm-6.56-.75L1.18.94A1.91 1.91 0 0 0 1 1.12v21.76a1.91 1.91 0 0 0 .18.18zM2.44.38l13.14 7.56-3.28 3.28L2.44.38z"/></svg>
+          <div class="sb-t"><small>Get it on</small>Google Play</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-inner">
+    <div class="f-top">
+      <div class="f-brand">
+        <img src="Logo_2.png" alt="Realtor.tj"/>
+        <p>Tajikistan's leading real estate platform connecting buyers, sellers, and renters across the country.</p>
+        <div class="f-social">
+          <a class="f-soc-btn" href="#" aria-label="Telegram">✈</a>
+          <a class="f-soc-btn" href="#" aria-label="Instagram">◎</a>
+          <a class="f-soc-btn" href="#" aria-label="Facebook">f</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#download">Download App</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact Us</h4>
+        <address>
+          <span class="c-row"><span class="c-icon">📍</span>Dushanbe, Tajikistan</span>
+          <a class="c-row" href="mailto:info@realtor.tj"><span class="c-icon">✉️</span>info@realtor.tj</a>
+          <a class="c-row" href="tel:+992000000000"><span class="c-icon">📞</span>+992 00 000-00-00</a>
+        </address>
+      </div>
+    </div>
+    <div class="f-div"></div>
+    <div class="f-bot">
+      <p>© 2025 Realtor.tj. All rights reserved.</p>
+      <div class="f-legal">
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('ham').addEventListener('click',()=>document.getElementById('nav').classList.toggle('open'));
+</script>
+</body>
+</html>
