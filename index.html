@@ -6,7 +6,7 @@
     <title>Realtor.tj — Real Estate in Tajikistan</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -135,24 +135,60 @@
         transition: all 0.25s;
       }
 
-      /* HERO */
+      /* HERO — Option A: full bleed illustration, text floats over fade */
       .hero {
-        background: linear-gradient(180deg, var(--off) 60%, var(--white) 100%);
+        position: relative;
+        background: var(--off);
         overflow: hidden;
+        min-height: 520px;
+        display: flex;
+        align-items: center;
+      }
+      .hero-visual {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 72%;
+        z-index: 1;
+      }
+      .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+        display: block;
+      }
+      .hero-fade {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 58%;
+        background: linear-gradient(to right, var(--off) 50%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
+      }
+      .hero-fade-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 120px;
+        background: linear-gradient(to top, var(--white) 0%, transparent 100%);
+        z-index: 2;
+        pointer-events: none;
       }
       .hero-inner {
-        max-width: 1280px;
+        position: relative;
+        z-index: 3;
+        max-width: 1200px;
         margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1.2fr;
-        align-items: center;
-        gap: 32px;
-        padding: 72px 48px 56px;
+        width: 100%;
+        padding: 80px 48px 80px;
       }
       .hero-text {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        max-width: 480px;
       }
       .badge {
         display: inline-flex;
@@ -178,22 +214,21 @@
         font-size: 10px;
       }
       h1 {
-        font-family: "Inter", sans-serif;
-        font-size: clamp(24px, 2.6vw, 40px);
+        font-size: clamp(28px, 3.2vw, 48px);
         font-weight: 800;
-        line-height: 1.18;
+        line-height: 1.12;
         letter-spacing: -0.02em;
         margin-bottom: 16px;
+        color: var(--text);
       }
       h1 em {
         font-style: normal;
         color: var(--blue);
       }
       .hero-p {
-        font-size: 15px;
+        font-size: 16px;
         color: var(--mid);
         line-height: 1.72;
-        max-width: 400px;
         margin-bottom: 32px;
       }
       .store-row {
@@ -205,12 +240,12 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 12px 20px;
+        padding: 13px 22px;
         border-radius: 12px;
         text-decoration: none;
         font-family: "Inter", sans-serif;
         font-weight: 600;
-        font-size: 13px;
+        font-size: 14px;
         transition: all 0.2s;
         border: none;
         cursor: pointer;
@@ -249,17 +284,6 @@
         font-weight: 400;
         opacity: 0.7;
       }
-      .hero-visual {
-        position: relative;
-        overflow: visible;
-      }
-      .hero-visual img {
-        width: 115%;
-        max-width: none;
-        display: block;
-        object-fit: contain;
-        filter: drop-shadow(0 20px 48px rgba(27, 49, 232, 0.08));
-      }
 
       /* TRUST */
       .trust {
@@ -282,7 +306,7 @@
         color: var(--white);
       }
       .t-num {
-        font-family: "Inter", sans-serif;
+        font-family: "Syne", sans-serif;
         font-size: 28px;
         font-weight: 800;
         color: var(--mint);
@@ -317,7 +341,7 @@
         margin-bottom: 10px;
       }
       .sec-h2 {
-        font-family: "Inter", sans-serif;
+        font-family: "Syne", sans-serif;
         font-size: clamp(26px, 3.5vw, 44px);
         font-weight: 800;
         letter-spacing: -0.02em;
@@ -360,7 +384,7 @@
         margin-bottom: 18px;
       }
       .f-card h3 {
-        font-family: "Inter", sans-serif;
+        font-family: "Syne", sans-serif;
         font-size: 17px;
         font-weight: 700;
         margin-bottom: 8px;
@@ -401,7 +425,7 @@
         z-index: 1;
       }
       .dl-text h2 {
-        font-family: "Inter", sans-serif;
+        font-family: "Syne", sans-serif;
         font-size: clamp(24px, 3.5vw, 44px);
         font-weight: 800;
         color: var(--white);
@@ -502,7 +526,7 @@
         color: var(--white);
       }
       .f-col h4 {
-        font-family: "Inter", sans-serif;
+        font-family: "Syne", sans-serif;
         font-size: 11px;
         font-weight: 700;
         letter-spacing: 0.08em;
@@ -598,12 +622,25 @@
         }
       }
       @media (max-width: 740px) {
-        .hero-inner {
-          grid-template-columns: 1fr;
-          padding: 48px 18px 48px;
+        .hero {
+          min-height: 400px;
         }
         .hero-visual {
-          margin-top: 8px;
+          width: 100%;
+        }
+        .hero-fade {
+          width: 100%;
+          background: linear-gradient(
+            to bottom,
+            var(--off) 40%,
+            transparent 100%
+          );
+        }
+        .hero-inner {
+          padding: 48px 18px 60px;
+        }
+        .hero-text {
+          max-width: 100%;
         }
       }
       @media (max-width: 640px) {
@@ -697,6 +734,11 @@
     </nav>
 
     <section class="hero">
+      <div class="hero-visual">
+        <img src="dushanbe-city.jpg" alt="Dushanbe city skyline" />
+      </div>
+      <div class="hero-fade"></div>
+      <div class="hero-fade-bottom"></div>
       <div class="hero-inner">
         <div class="hero-text">
           <div class="badge">
@@ -735,12 +777,6 @@
               <div class="sb-t"><small>Get it on</small>Google Play</div>
             </a>
           </div>
-        </div>
-        <div class="hero-visual">
-          <img
-            src="dushanbe-city.jpg"
-            alt="Dushanbe city skyline"
-          />
         </div>
       </div>
     </section>
