@@ -135,35 +135,49 @@
         transition: all 0.25s;
       }
 
-      /* HERO — Option D: text left, illustration right, bottom-anchored, no crop */
+      /* HERO — Option G: blue left panel, illustration fills right */
       .hero {
-        background: var(--off);
-        overflow: hidden;
+        display: grid;
+        grid-template-columns: 42% 58%;
+        min-height: 560px;
       }
       .hero-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: flex-end;
-        gap: 0;
-        padding: 72px 48px 0;
+        background: var(--blue);
+        padding: 64px 52px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
-      .hero-text {
-        padding-bottom: 72px;
+      .hero-visual {
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+      }
+      .hero-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left bottom;
+        display: block;
+      }
+      .hero-fade {
+        display: none;
+      }
+      .hero-fade-bottom {
+        display: none;
       }
       .badge {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(27, 49, 232, 0.08);
-        border: 1px solid rgba(27, 49, 232, 0.2);
-        color: var(--blue);
+        background: rgba(149, 249, 175, 0.12);
+        border: 1px solid rgba(149, 249, 175, 0.28);
+        color: var(--mint);
         border-radius: 100px;
         padding: 5px 14px 5px 8px;
         font-size: 12px;
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 22px;
       }
       .badge-dot {
         width: 20px;
@@ -176,23 +190,22 @@
         font-size: 10px;
       }
       h1 {
-        font-size: clamp(28px, 3.2vw, 48px);
+        font-size: clamp(26px, 2.8vw, 46px);
         font-weight: 800;
         line-height: 1.12;
         letter-spacing: -0.02em;
         margin-bottom: 16px;
-        color: var(--text);
+        color: var(--white);
       }
       h1 em {
         font-style: normal;
-        color: var(--blue);
+        color: var(--mint);
       }
       .hero-p {
         font-size: 16px;
-        color: var(--mid);
+        color: rgba(255, 255, 255, 0.7);
         line-height: 1.72;
-        max-width: 420px;
-        margin-bottom: 32px;
+        margin-bottom: 36px;
       }
       .store-row {
         display: flex;
@@ -214,13 +227,13 @@
         cursor: pointer;
       }
       .sb.ios {
-        background: var(--blue);
-        color: var(--white);
+        background: var(--white);
+        color: var(--blue);
       }
       .sb.ios:hover {
-        background: var(--blue-dk);
+        background: var(--off);
         transform: translateY(-2px);
-        box-shadow: 0 10px 28px var(--blue-gl);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
       }
       .sb.and {
         background: var(--mint);
@@ -229,7 +242,6 @@
       .sb.and:hover {
         background: var(--mint-dk);
         transform: translateY(-2px);
-        box-shadow: 0 10px 28px rgba(149, 249, 175, 0.4);
       }
       .sb svg {
         width: 20px;
@@ -246,24 +258,6 @@
         font-size: 10px;
         font-weight: 400;
         opacity: 0.7;
-      }
-      .hero-visual {
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        overflow: visible;
-      }
-      .hero-visual img {
-        width: 100%;
-        display: block;
-        object-fit: contain;
-        object-position: bottom center;
-      }
-      .hero-fade {
-        display: none;
-      }
-      .hero-fade-bottom {
-        display: none;
       }
 
       /* TRUST */
@@ -603,15 +597,15 @@
         }
       }
       @media (max-width: 768px) {
-        .hero-inner {
+        .hero {
           grid-template-columns: 1fr;
-          padding: 48px 20px 0;
+          min-height: auto;
         }
-        .hero-text {
-          padding-bottom: 36px;
+        .hero-inner {
+          padding: 48px 24px 48px;
         }
-        .hero-visual img {
-          max-width: 100%;
+        .hero-visual {
+          height: 280px;
         }
       }
       @media (max-width: 640px) {
@@ -706,47 +700,45 @@
 
     <section class="hero">
       <div class="hero-inner">
-        <div class="hero-text">
-          <div class="badge">
-            <span class="badge-dot">🏠</span>Tajikistan's Real Estate Platform
-          </div>
-          <h1>Find Your <em>Perfect</em> Property in Tajikistan</h1>
-          <p class="hero-p">
-            Browse thousands of verified listings across Dushanbe and beyond.
-            Buy, sell, or rent — all in one place.
-          </p>
-          <div class="store-row">
-            <a
-              class="sb ios"
-              href="https://apps.apple.com"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-                />
-              </svg>
-              <div class="sb-t"><small>Download on the</small>App Store</div>
-            </a>
-            <a
-              class="sb and"
-              href="https://play.google.com"
-              target="_blank"
-              rel="noopener"
-            >
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M3.18 23.76a2 2 0 0 1-.69-.68V1.12a2 2 0 0 1 .69-.68l.1-.06 12.08 12.08v.28L3.28 23.82l-.1-.06zm16.64-6.98-3.28-1.88-3.28 3.28 3.05 3.05a2 2 0 0 0 .26-.16l3.25-1.87a1.37 1.37 0 0 0 0-2.42zm-6.56-.75L1.18.94A1.91 1.91 0 0 0 1 1.12v21.76a1.91 1.91 0 0 0 .18.18zM2.44.38l13.14 7.56-3.28 3.28L2.44.38z"
-                />
-              </svg>
-              <div class="sb-t"><small>Get it on</small>Google Play</div>
-            </a>
-          </div>
+        <div class="badge">
+          <span class="badge-dot">🏠</span>Tajikistan's Real Estate Platform
         </div>
-        <div class="hero-visual">
-          <img src="dushanbe-city.jpg" alt="Dushanbe city skyline" />
+        <h1>Find Your <em>Perfect</em> Property in Tajikistan</h1>
+        <p class="hero-p">
+          Browse thousands of verified listings across Dushanbe and beyond. Buy,
+          sell, or rent — all in one place.
+        </p>
+        <div class="store-row">
+          <a
+            class="sb ios"
+            href="https://apps.apple.com"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
+              />
+            </svg>
+            <div class="sb-t"><small>Download on the</small>App Store</div>
+          </a>
+          <a
+            class="sb and"
+            href="https://play.google.com"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M3.18 23.76a2 2 0 0 1-.69-.68V1.12a2 2 0 0 1 .69-.68l.1-.06 12.08 12.08v.28L3.28 23.82l-.1-.06zm16.64-6.98-3.28-1.88-3.28 3.28 3.05 3.05a2 2 0 0 0 .26-.16l3.25-1.87a1.37 1.37 0 0 0 0-2.42zm-6.56-.75L1.18.94A1.91 1.91 0 0 0 1 1.12v21.76a1.91 1.91 0 0 0 .18.18zM2.44.38l13.14 7.56-3.28 3.28L2.44.38z"
+              />
+            </svg>
+            <div class="sb-t"><small>Get it on</small>Google Play</div>
+          </a>
         </div>
+      </div>
+      <div class="hero-visual">
+        <img src="dushanbe-city.jpg" alt="Dushanbe city skyline" />
       </div>
     </section>
 
