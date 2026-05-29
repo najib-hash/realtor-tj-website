@@ -135,37 +135,31 @@
         transition: all 0.25s;
       }
 
-      /* HERO — Option A: full bleed illustration, text floats over fade */
+      /* HERO — full width illustration, text centered over it */
       .hero {
         position: relative;
-        background: var(--off);
         overflow: hidden;
-        min-height: 520px;
+        min-height: 560px;
         display: flex;
         align-items: center;
+        justify-content: center;
       }
       .hero-visual {
         position: absolute;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        width: 72%;
+        inset: 0;
         z-index: 1;
       }
       .hero-visual img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: left center;
+        object-position: center bottom;
         display: block;
       }
       .hero-fade {
         position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 58%;
-        background: linear-gradient(to right, var(--off) 50%, transparent 100%);
+        inset: 0;
+        background: rgba(255, 255, 255, 0.55);
         z-index: 2;
         pointer-events: none;
       }
@@ -174,28 +168,30 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 120px;
+        height: 100px;
         background: linear-gradient(to top, var(--white) 0%, transparent 100%);
-        z-index: 2;
+        z-index: 3;
         pointer-events: none;
       }
       .hero-inner {
         position: relative;
-        z-index: 3;
-        max-width: 1200px;
-        margin: 0 auto;
+        z-index: 4;
         width: 100%;
         padding: 80px 48px 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
       .hero-text {
-        max-width: 480px;
+        max-width: 620px;
       }
       .badge {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(27, 49, 232, 0.08);
-        border: 1px solid rgba(27, 49, 232, 0.2);
+        background: rgba(27, 49, 232, 0.1);
+        border: 1px solid rgba(27, 49, 232, 0.25);
         color: var(--blue);
         border-radius: 100px;
         padding: 5px 14px 5px 8px;
@@ -214,11 +210,11 @@
         font-size: 10px;
       }
       h1 {
-        font-size: clamp(28px, 3.2vw, 48px);
+        font-size: clamp(32px, 4vw, 58px);
         font-weight: 800;
-        line-height: 1.12;
-        letter-spacing: -0.02em;
-        margin-bottom: 16px;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+        margin-bottom: 18px;
         color: var(--text);
       }
       h1 em {
@@ -226,21 +222,22 @@
         color: var(--blue);
       }
       .hero-p {
-        font-size: 16px;
+        font-size: 17px;
         color: var(--mid);
-        line-height: 1.72;
-        margin-bottom: 32px;
+        line-height: 1.7;
+        margin-bottom: 36px;
       }
       .store-row {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
+        justify-content: center;
       }
       .sb {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 13px 22px;
+        padding: 14px 24px;
         border-radius: 12px;
         text-decoration: none;
         font-family: "Inter", sans-serif;
@@ -621,26 +618,18 @@
           grid-column: 1/-1;
         }
       }
-      @media (max-width: 740px) {
+      @media (max-width: 640px) {
         .hero {
-          min-height: 400px;
-        }
-        .hero-visual {
-          width: 100%;
-        }
-        .hero-fade {
-          width: 100%;
-          background: linear-gradient(
-            to bottom,
-            var(--off) 40%,
-            transparent 100%
-          );
+          min-height: 440px;
         }
         .hero-inner {
-          padding: 48px 18px 60px;
+          padding: 56px 20px 72px;
         }
         .hero-text {
           max-width: 100%;
+        }
+        h1 {
+          font-size: 32px;
         }
       }
       @media (max-width: 640px) {
