@@ -135,63 +135,29 @@
         transition: all 0.25s;
       }
 
-      /* HERO — full width illustration, text centered over it */
+      /* HERO — Option D: text left, illustration right, bottom-anchored, no crop */
       .hero {
-        position: relative;
+        background: var(--off);
         overflow: hidden;
-        min-height: 560px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .hero-visual {
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-      }
-      .hero-visual img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center bottom;
-        display: block;
-      }
-      .hero-fade {
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.55);
-        z-index: 2;
-        pointer-events: none;
-      }
-      .hero-fade-bottom {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100px;
-        background: linear-gradient(to top, var(--white) 0%, transparent 100%);
-        z-index: 3;
-        pointer-events: none;
       }
       .hero-inner {
-        position: relative;
-        z-index: 4;
-        width: 100%;
-        padding: 80px 48px 80px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-end;
+        gap: 0;
+        padding: 72px 48px 0;
       }
       .hero-text {
-        max-width: 620px;
+        padding-bottom: 72px;
       }
       .badge {
         display: inline-flex;
         align-items: center;
         gap: 8px;
-        background: rgba(27, 49, 232, 0.1);
-        border: 1px solid rgba(27, 49, 232, 0.25);
+        background: rgba(27, 49, 232, 0.08);
+        border: 1px solid rgba(27, 49, 232, 0.2);
         color: var(--blue);
         border-radius: 100px;
         padding: 5px 14px 5px 8px;
@@ -210,11 +176,11 @@
         font-size: 10px;
       }
       h1 {
-        font-size: clamp(32px, 4vw, 58px);
+        font-size: clamp(28px, 3.2vw, 48px);
         font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.03em;
-        margin-bottom: 18px;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        margin-bottom: 16px;
         color: var(--text);
       }
       h1 em {
@@ -222,22 +188,22 @@
         color: var(--blue);
       }
       .hero-p {
-        font-size: 17px;
+        font-size: 16px;
         color: var(--mid);
-        line-height: 1.7;
-        margin-bottom: 36px;
+        line-height: 1.72;
+        max-width: 420px;
+        margin-bottom: 32px;
       }
       .store-row {
         display: flex;
         gap: 12px;
         flex-wrap: wrap;
-        justify-content: center;
       }
       .sb {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 14px 24px;
+        padding: 13px 22px;
         border-radius: 12px;
         text-decoration: none;
         font-family: "Inter", sans-serif;
@@ -280,6 +246,24 @@
         font-size: 10px;
         font-weight: 400;
         opacity: 0.7;
+      }
+      .hero-visual {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: visible;
+      }
+      .hero-visual img {
+        width: 100%;
+        display: block;
+        object-fit: contain;
+        object-position: bottom center;
+      }
+      .hero-fade {
+        display: none;
+      }
+      .hero-fade-bottom {
+        display: none;
       }
 
       /* TRUST */
@@ -618,18 +602,16 @@
           grid-column: 1/-1;
         }
       }
-      @media (max-width: 640px) {
-        .hero {
-          min-height: 440px;
-        }
+      @media (max-width: 768px) {
         .hero-inner {
-          padding: 56px 20px 72px;
+          grid-template-columns: 1fr;
+          padding: 48px 20px 0;
         }
         .hero-text {
-          max-width: 100%;
+          padding-bottom: 36px;
         }
-        h1 {
-          font-size: 32px;
+        .hero-visual img {
+          max-width: 100%;
         }
       }
       @media (max-width: 640px) {
@@ -723,11 +705,6 @@
     </nav>
 
     <section class="hero">
-      <div class="hero-visual">
-        <img src="dushanbe-city.jpg" alt="Dushanbe city skyline" />
-      </div>
-      <div class="hero-fade"></div>
-      <div class="hero-fade-bottom"></div>
       <div class="hero-inner">
         <div class="hero-text">
           <div class="badge">
